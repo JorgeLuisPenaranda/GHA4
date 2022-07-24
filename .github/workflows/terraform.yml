@@ -38,7 +38,7 @@ jobs:
         run: terraform plan -no-color -input=false
         continue-on-error: true
 
-      - name: Terraform outputs
+      - name: Terraform outputs m3
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
         env:
@@ -68,7 +68,7 @@ jobs:
               body: output
             })
 
-      - name: Terraform Plan Statusm3
+      - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
